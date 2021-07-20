@@ -1,0 +1,230 @@
+
+
+/* CSS GRID */
+
+.menu {
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: repeat(5, 1fr) auto;
+    grid-template-rows: repeat(3, auto);
+
+    .logo-img {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    
+    .title-welcome {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    .icons {
+        grid-column: 5 / 6;
+        grid-row: 1 / 2;
+    }
+
+    .perfil {
+        grid-column: 6 / 7;
+        grid-row: 1 / 2;
+    }
+
+    .perfil {
+        display: grid;
+        grid-column-gap: 8px;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, 1fr);
+
+        .avatar {
+            grid-column: 1 / 2;
+            grid-row: 1 / -1;
+        }
+        .title-connection {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+        .last-connection {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+        .icon-dropdown {
+            grid-column: 3 / -1;
+            grid-row: 1 / -1;
+        }
+    }
+
+    .divider {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+    }
+
+    .tabs {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+    }
+}
+
+
+
+/* ESTILOS */
+.navbar {
+    //62px margin
+    padding: 0px 62px 0px 62px;
+    height: 139px;
+    background: #FFFFFF !important;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+}
+
+.menu {
+    padding: 20px 0px 0px 0px;
+    .title-welcome {
+        p {
+            font-family: Ubuntu;
+            font-weight: 500;
+            font-size: 14px;
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+        }
+    }
+    
+    #text-center {
+        display: table;
+        justify-content: center;
+        align-items: center;
+    }
+    #center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icons {
+
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        .notificaciones-icon {
+            
+            position: relative;
+            display: flex;
+            margin: 0px 30px 0px 25px;
+            align-items: center;
+
+            .badge {
+                width: 13px;
+                height: 13px;
+                position: absolute;
+                top: 0px;
+                right: 10px;
+                padding: 3.4px 3px;
+                border-radius: 100%;
+                background: #D05B6D;
+                color: #FFFFFF;
+                letter-spacing: -0.04em;
+                font-family: Arial;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 8px;
+                text-align: center;
+            }
+
+        }
+
+        #icon-gray {
+            color: #757575 !important;
+        }
+
+    }
+
+    .perfil {
+
+        .avatar {
+            img {
+                width: 44px;
+                height: 43px;
+                border-radius: 50%;
+            }
+        }
+
+        .title-connection {
+            font-family: Ubuntu;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 5px;
+            color: #757575;
+            p {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+        .last-connection {
+            font-family: Ubuntu;
+            font-style: normal;
+            font-size: 13px;
+            line-height: 15px;
+            color: #8d8d8dd3;
+        }
+        .icon-dropdown {
+            color: #757575;
+        }
+
+    }
+
+    .divider {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #e5e5e556;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    font-size: 14px;
+    color: #2196F3;
+    background-color: #FFFFFF;
+    font-family: Ubuntu;
+    font-size: 14px;
+    min-width: auto;
+}
+
+::ng-deep .mat-tab-list .mat-tab-label {
+    font-size: 14px;
+    color: #003459;
+    background-color: #FFFFFF;
+    opacity: 1 !important;
+    font-family: Ubuntu;
+    font-size: 14px;
+    min-width: auto;
+    width: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    &:nth-child(9) {
+        color: #757575;
+    }
+}
+
+    
+/* ink bar */
+::ng-deep .mat-ink-bar {
+    //background-color: var(--primary-color,#1F89CE) !important;
+    background-color: #2196F3 !important;
+}
+::ng-deep mat-tab-group .mat-tab-header {
+    border-bottom: none;
+}
