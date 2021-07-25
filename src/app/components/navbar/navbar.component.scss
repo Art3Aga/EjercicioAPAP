@@ -29,7 +29,7 @@
 
     .perfil {
         display: grid;
-        grid-column-gap: 8px;
+        grid-column-gap: 6px;
         grid-template-columns: repeat(3, auto);
         grid-template-rows: repeat(2, 1fr);
 
@@ -173,9 +173,18 @@
     }
 
     .divider {
-        border-width: 1px;
-        border-style: solid;
-        border-color: #e5e5e556;
+        display: table;
+        justify-content: center;
+        align-items: center;
+        //border-bottom: #e5e5e556 solid 1px;
+        //height: 17px;
+        .linea {
+            border-bottom: #e5e5e556 solid 1px;
+            height: 17px;
+            width: 100%;
+            vertical-align: middle;
+            display: table-cell;
+        }
     }
 }
 
