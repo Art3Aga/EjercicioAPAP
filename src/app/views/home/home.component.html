@@ -34,7 +34,7 @@
             <div class="ahorros">
                 <div class="recuadro-ahorros">
                     <div class="chart">
-                        <app-chart></app-chart>
+                        <app-donut-chart [porcentaje]="12" [backgroundColor]="'#0046C4'"></app-donut-chart>
                     </div>
                     <div class="title-ahorro">
                         <p>Ahorro</p>
@@ -46,7 +46,17 @@
             </div>
 
             <div class="deudas">
-                <div class="recuadro-deudas"></div>
+                <div class="recuadro-deudas">
+                    <div class="chart">
+                        <app-donut-chart [porcentaje]="86" [backgroundColor]="'#92754C'"></app-donut-chart>
+                    </div>
+                    <div class="title-deudas">
+                        <p>Deudas</p>
+                    </div>
+                    <div class="deudas-value">
+                        <p>-$999,999.99</p>
+                    </div>
+                </div>
             </div>
 
             <div class="title-acceso-rapido">

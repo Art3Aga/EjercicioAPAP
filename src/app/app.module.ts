@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { HomeComponent } from './views/home/home.component'; 
+import { ChartComponent } from './components/chart/chart.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 
 //Angular Material Components
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,8 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 
 //Librarys
-import { ChartModule } from 'angular2-chartjs';
-import { ChartComponent } from './components/chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ChartComponent } from './components/chart/chart.component';
     CardComponent,
     HomeComponent,
     ChartComponent,
+    DonutChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { ChartComponent } from './components/chart/chart.component';
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
-    ChartModule
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

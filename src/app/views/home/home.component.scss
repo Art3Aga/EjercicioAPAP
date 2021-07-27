@@ -58,7 +58,7 @@
             
             .recuadro-ahorros {
                 display: grid;
-                grid-template-columns: minmax(auto, 120px) minmax(auto, 78px);
+                grid-template-columns: minmax(auto, 80px) minmax(auto, 78px);
                 grid-template-rows: repeat(2, minmax(auto, 37.5px));
             }
 
@@ -73,6 +73,31 @@
             }
 
             .ahorro-value {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+
+        }
+
+        .deudas {
+            
+            .recuadro-deudas {
+                display: grid;
+                grid-template-columns: minmax(auto, 80px) auto;
+                grid-template-rows: repeat(2, minmax(auto, 37.5px));
+            }
+
+            .chart {
+                grid-column: 1 / 2;
+                grid-row: 1 / -1;
+            }
+
+            .title-deudas {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .deudas-value {
                 grid-column: 2 / 3;
                 grid-row: 2 / 3;
             }
@@ -262,27 +287,28 @@
 
    .stadistics {
 
-    .recuadro-ahorros {
-
+    .recuadro-ahorros, .recuadro-deudas {
         .chart {
-            app-chart {
-                width: 220px;
-                height: 220px;
+            //padding-top: 8px;
+           //padding-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .container-chart {
+                width: 120px;
+                height: 78px;
             }
         }
 
-        .title-ahorro {
-            display: flex;
-            align-items: center;
+        .title-ahorro, .title-deudas {
             p {
-                padding-top: 10px;
+                padding-top: 15px;
                 font-family: Ubuntu;
                 font-style: normal;
                 font-weight: normal;
                 font-size: 14px;
                 line-height: 21px;
                 display: flex;
-                align-items: center;
                 letter-spacing: 0.1px;
                 color: rgba(0, 0, 0, 0.6);
             }
@@ -296,6 +322,17 @@
                 line-height: 24px;
                 letter-spacing: 0.5px;
                 color: #0046C4;
+            }
+        }
+        .deudas-value {
+            p {
+                font-family: Arial;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                color: #92754C;
             }
         }
     }

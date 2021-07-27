@@ -1,0 +1,14 @@
+
+<!--<chart [type]="type" [data]="data" [options]="options"></chart>-->
+
+<div class="container-chart">
+    <div class="container-title">
+        <p>{{porcentaje}}%</p>
+    </div>
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    </canvas>
+</div>
+
+
+
