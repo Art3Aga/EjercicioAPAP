@@ -139,10 +139,6 @@
 
     .perfil {
 
-        &:hover {
-            cursor: pointer;
-        }
-
         .avatar {
             img {
                 width: 44px;
@@ -172,6 +168,12 @@
         }
         .icon-dropdown {
             color: #757575;
+            cursor: pointer;
+            span:active {
+                background-color: #FFFFFF;
+                transform: rotate(180deg);
+                color: #0046C4;
+            }
         }
 
     }
@@ -244,6 +246,8 @@
 
 ::ng-deep .menu-perfil {
     
+    
+
     button {
         display: flex;
         font-family: Arial;
@@ -253,6 +257,7 @@
         line-height: 24px;
         letter-spacing: 0.5px;
         color: #8A8D8F;
+        outline: none !important;
         span {
             padding-right: 10px;
             color: rgba(0, 0, 0, 0.54) !important;
