@@ -36,7 +36,29 @@
             </div>
         </div>
 
-        <div class="perfil">
+        <div class="perfil" [matMenuTriggerFor]="perfil_menu">
+            <mat-menu class="menu-perfil" #perfil_menu="matMenu">
+                <button mat-menu-item>
+                    <span class="material-icons-outlined">manage_accounts</span>
+                    Mi perfil y ajustes
+                </button>
+                <button mat-menu-item>
+                    <span class="material-icons-outlined">lock</span>
+                    Cambio clave
+                </button>
+                <button mat-menu-item>
+                    <span class="material-icons-outlined">settings</span>
+                    Configuración
+                </button>
+                <button mat-menu-item>
+                    <span class="material-icons-outlined">contact_support</span>
+                    Preguntas frecuentes
+                </button>
+                <button mat-menu-item>
+                    <span class="material-icons-outlined">logout</span>
+                    Salir
+                </button>
+            </mat-menu>
             <div class="avatar" id="center">
                 <img src="../../../assets//avatar.png" alt="">
             </div>

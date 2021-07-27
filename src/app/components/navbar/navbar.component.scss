@@ -139,6 +139,10 @@
 
     .perfil {
 
+        &:hover {
+            cursor: pointer;
+        }
+
         .avatar {
             img {
                 width: 44px;
@@ -236,4 +240,28 @@
 }
 ::ng-deep mat-tab-group .mat-tab-header {
     border-bottom: none;
+}
+
+::ng-deep .menu-perfil {
+    
+    button {
+        display: flex;
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: #8A8D8F;
+        span {
+            padding-right: 10px;
+            color: rgba(0, 0, 0, 0.54) !important;
+        }
+    }
+
+    button:nth-child(5) {
+        padding-top: 10px;
+        border-top: solid 1px #E5E5E5;
+    }
+
 }

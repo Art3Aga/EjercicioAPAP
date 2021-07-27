@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatMenuModule } from '@angular/material/menu'; 
 
 //Librarys
 import { ChartsModule } from 'ng2-charts';
@@ -45,7 +46,8 @@ import { ChartsModule } from 'ng2-charts';
     MatFormFieldModule,
     MatInputModule,
     MatSortModule,
-    ChartsModule
+    ChartsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
