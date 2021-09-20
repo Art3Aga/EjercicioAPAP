@@ -163,7 +163,7 @@
                     <p>DOP</p>
                 </div>
                 <div class="icon-accounts">
-                    <span class="material-icons-outlined">account_balance</span>                    
+                    <span class="material-icons-outlined">account_balance</span>
                 </div>
                 <div class="n-accounts">
                     <p>2 cuentas</p>
@@ -231,46 +231,43 @@
                     <mat-tab label="Préstamos"></mat-tab>
                 </mat-tab-group>
             </div>
-              
+
               <div class="tabla-datos">
                 <table mat-table [dataSource]="dataSource" matSort matSortActive="no_cuenta" matSortDisableClear matSortDirection="desc">
-              
-                  <!-- ID Column -->
+
                   <ng-container matColumnDef="no_cuenta">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> No. Cuenta </th>
                     <td mat-cell *matCellDef="let row"> {{row.no_cuenta}} </td>
                   </ng-container>
-              
-                  <!-- Progress Column -->
+
                   <ng-container matColumnDef="balance">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Balance Actual </th>
                     <td mat-cell *matCellDef="let row"> ${{row.balance}} </td>
                   </ng-container>
-              
-                  <!-- Name Column -->
+
                   <ng-container matColumnDef="personalizacion">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Personalización </th>
                     <td mat-cell *matCellDef="let row"> {{row.personalizacion}} </td>
                   </ng-container>
-              
-                  <!-- Fruit Column -->
+
                   <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>  </th>
-                    <td mat-cell *matCellDef="let row"> 
-                        <span class="material-icons">chevron_right</span> 
+                    <td mat-cell *matCellDef="let row">
+                        <span class="material-icons">chevron_right</span>
                     </td>
                   </ng-container>
-              
+
                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
-              
-                
+
+
               </div>
               <mat-paginator [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
               <div class="table-shadow"></div>
         </div>
 
-    </div>    
+    </div>
 
 </div>
+

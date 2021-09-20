@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
-import { HomeComponent } from './views/home/home.component'; 
+import { HomeComponent } from './views/home/home.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 
@@ -20,10 +20,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
-import { MatMenuModule } from '@angular/material/menu'; 
+import { MatMenuModule } from '@angular/material/menu';
 
 //Librarys
 import { ChartsModule } from 'ng2-charts';
+import { TablaResponsiveComponent } from './components/tabla-responsive/tabla-responsive.component';
+import { TablasComponent } from './views/tablas/tablas.component';
+import { ResponsiveTableDirective } from './directives/responsive-table.directive';
+
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 
 @NgModule({
@@ -34,6 +40,9 @@ import { ChartsModule } from 'ng2-charts';
     HomeComponent,
     ChartComponent,
     DonutChartComponent,
+    TablaResponsiveComponent,
+    TablasComponent,
+    ResponsiveTableDirective,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +56,8 @@ import { ChartsModule } from 'ng2-charts';
     MatInputModule,
     MatSortModule,
     ChartsModule,
-    MatMenuModule
+    MatMenuModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

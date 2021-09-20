@@ -1,0 +1,412 @@
+
+// CSS GRID
+
+.tabla-header {
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 350px auto repeat(3, minmax(auto, 50px));
+  grid-template-rows: auto;
+
+
+  .input-search {
+    grid-column: 1 / 2;
+  }
+  .div-filtrar {
+    grid-column: 3 / 4;
+  }
+  .icon-filtro {
+    grid-column: 4 / 5;
+  }
+  .icon-download {
+    grid-column: 5 / 6;
+  }
+
+}
+
+
+
+// ESTILOS
+
+.contenedor {
+
+  width: 100%;
+  margin-top: 20px;
+
+  .tabla {
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 10px;
+    background: linear-gradient(255.89deg, #F9F9F9 -44.72%, #FFFFFF 44.56%);
+    box-shadow: 2px 4px 11px 1px rgba(0, 0, 0, 0.14);
+
+
+    .tabla-header {
+      //background-color: green;
+      padding: 3px 30px 0px 30px;
+      height: 64px;
+      border-bottom: 2px solid #E5E5E5;
+      border-radius: 10px 10px 0px 0px;
+
+      .input-search > * {
+        width: 100%;
+        height: 20px !important;
+        span {
+          color: #8A8D8F;
+        }
+      }
+
+      ::ng-deep .mat-form-field-label {
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.25px;
+        color: #737373;
+       }
+
+      .div-filtrar, .icon-filtro, .icon-download {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .div-filtrar {
+        span {
+          font-family: Ubuntu;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 21px;
+          text-align: right;
+          letter-spacing: 0.1px;
+          color: #757575;
+        }
+      }
+
+      .icon-filtro {
+        span {
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+
+      .icon-download {
+        span {
+          transform: scale(1.2);
+        }
+        height: 88%;
+        background-color: #FFD665;
+        border-radius: 4px;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+      }
+
+    }
+
+    .tabla-datos {
+      padding-top: 3px;
+      padding-left: 15px;
+      //height: 300px;
+      overflow-y: auto;
+
+      .status-enviado {
+        background: #E3F2FD;
+        border-radius: 100px;
+        width: 85px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          color: #1976D2;
+          opacity: 0.87;
+          letter-spacing: 0.25px;
+        }
+      }
+
+      .status-aplicado {
+        background: #ECF9F3;
+        border-radius: 100px;
+        width: 85px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          color: #008035;
+          opacity: 0.87;
+          letter-spacing: 0.25px;
+        }
+      }
+
+      .status-rechazado {
+        background: #FCE7E7;
+        border-radius: 100px;
+        width: 85px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          color: #C62828;
+          opacity: 0.87;
+          letter-spacing: 0.25px;
+        }
+      }
+
+    }
+
+      table {
+        width: 100%;
+        height: 98%;
+        //border: none;
+        //border-color: transparent !important;
+        background-color: transparent !important;
+
+        th {
+          font-family: Ubuntu;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: 0.1px;
+          color: #9E9E9E;
+        }
+
+        td {
+          font-family: Arial;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: 0.25px;
+          color: rgba(0, 0, 0, 0.6);
+          //border-bottom-style: none;
+        }
+      }
+
+  }
+
+}
+
+
+
+//MEDIA QUERIES
+
+
+@media (max-width: 768px) { //hacia abajo
+
+  .tabla {
+    height: 100% !important;
+  }
+
+  .contenedor {
+    margin-top: 100px;
+  }
+  /*.tabla, .tabla-header {
+    display: none;
+  }*/
+
+
+
+  .mat-table[responsiveTable] {
+    .mat-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      height: auto;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      border-bottom-style: none !important;
+
+      th.mat-header-cell {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        justify-content: space-around;
+        visibility: hidden !important;
+
+        & > .mat-sort-header-container {
+          padding-left: 15px; // padding is used to center the header table cells, due to the width of the sort icon
+        }
+
+        &:not([mat-sort-header]),
+        &.mat-sort-header-disabled,
+        &.mat-column-actions {
+          display: none;
+        }
+      }
+    }
+
+    .mat-row {
+      height: auto;
+
+      td.mat-cell:not(.mat-column-actions) {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 0.5rem;
+        text-align: right;
+        word-break: break-word;
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.25px;
+        color: rgba(0, 0, 0, 0.6);
+
+        & > * {
+          grid-column: 2;
+        }
+
+        &:before {
+          content: attr(data-column-name);
+          text-align: left;
+          font-family: Ubuntu;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: 0.1px;
+          color: #9E9E9E;
+        }
+      }
+
+      /*td.mat-column-actions {
+        display: flex;
+        justify-content: center;
+        padding: 0 0.5rem;
+
+        & > button {
+          margin: 0.5rem 0;
+        }
+      }*/
+
+      &:last-of-type td:last-of-type {
+        border: none;
+      }
+
+      &:not(:last-of-type) td:last-of-type {
+        //border-bottom: 1rem solid #fafafa;
+        border-bottom: 1px solid #E5E5E5;
+      }
+    }
+  }
+
+
+  .lista {
+    //visibility: visible;
+    margin: 0 auto;
+    width: 90%;
+    height: 500px;
+    box-shadow: 0px 10px 40px rgba(29, 22, 23, 0.07);
+    border-radius: 10px;
+
+    .lista-header {
+      width: 100%;
+      display: grid;
+      grid-column-gap: 3px;
+      grid-row-gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(auto, 93px));
+      grid-template-rows: repeat(2, minmax(auto, 50px));
+      border-bottom: 1px solid #E5E5E5;
+
+      .input-search-lista {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        padding-left: 20px;
+        & > * {
+          width: 100%;
+        }
+      }
+      .div-filtrar-lista {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+      .icon-filtro-lista {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+      .icon-download-lista {
+        grid-column: -2;
+        grid-row: 2 / 3;
+      }
+
+      ::ng-deep .mat-form-field-label {
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.25px;
+        color: #737373;
+       }
+
+      .div-filtrar-lista, .icon-filtro-lista, .icon-download-lista {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .div-filtrar-lista {
+        span {
+          font-family: Ubuntu;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 21px;
+          text-align: right;
+          letter-spacing: 0.1px;
+          color: #757575;
+        }
+      }
+
+      .icon-filtro-lista {
+        span {
+          color: rgba(0, 0, 0, 0.54);
+        }
+      }
+
+      .icon-download-lista {
+        margin: 0 auto;
+        span {
+          transform: scale(1.2);
+        }
+        height: 88%;
+        width: 50%;
+        background-color: #FFD665;
+        border-radius: 4px;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+      }
+
+    }
+
+
+  }
+
+}
+
+
+@media (min-width: 768px) { //en adelante
+
+  .lista {
+    display: none;
+  }
+
+}
+
+
+.hide {
+  display: none !important;
+  background-color: #008035;
+}
+.show {
+  visibility: visible !important;
+}
+
+
