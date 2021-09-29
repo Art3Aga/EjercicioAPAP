@@ -28,22 +28,22 @@
 
           <div matColumnDef="fecha">
             <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Fecha </th>
-            <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+            <td mat-cell *matCellDef="let row"> <div class="fecha">{{row.fecha}}</div> </td>
           </div>
 
           <div matColumnDef="referencia">
             <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Referencia </th>
-            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.referencia}} </td>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> <div class="referencia">{{row.referencia}}</div> </td>
           </div>
 
           <div matColumnDef="descripcion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
-            <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+            <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+            <td mat-cell *matCellDef="let row"> <div class="descripcion">{{row.descripcion}}</div> </td>
           </div>
 
           <div matColumnDef="monto">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Monto </th>
-            <td mat-cell *matCellDef="let row"> {{row.monto}} </td>
+            <td mat-cell *matCellDef="let row"> <div class="monto">{{row.monto}}</div> </td>
           </div>
 
           <div matColumnDef="moneda">
@@ -62,20 +62,15 @@
           </div>
 
           <div matColumnDef="estatus">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
             <td mat-cell *matCellDef="let row">
-              <div [ngClass]="row.estatus == 'Enviado' ? 'status-enviado' : row.estatus == 'Aplicado' ? 'status-aplicado' : row.estatus == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
-                <span>{{row.estatus}}</span>
+              <div class="status">
+                <div [ngClass]="row.estatus == 'Enviado' ? 'status-enviado' : row.estatus == 'Aplicado' ? 'status-aplicado' : row.estatus == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
+                  <span>{{row.estatus}}</span>
+                </div>
               </div>
             </td>
           </div>
-
-          <!--<div matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>  </th>
-            <td mat-cell *matCellDef="let row">
-                <span class="material-icons">chevron_right</span>
-            </td>
-          </div>-->
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

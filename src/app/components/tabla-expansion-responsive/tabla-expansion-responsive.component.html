@@ -1,0 +1,165 @@
+<div class="contenedor">
+  <div class="tabla">
+
+    <div class="tabla-header">
+
+      <div class="input-search">
+        <mat-form-field appearance="outline">
+          <mat-label>Buscar por referencia, descripción, monto...</mat-label>
+          <span matPrefix class="material-icons-outlined">search</span>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="div-filtrar">
+        <span>Filtrar</span>
+      </div>
+      <div class="icon-filtro">
+        <span class="material-icons-outlined">filter_list</span>
+      </div>
+      <div class="icon-download">
+        <span class="material-icons">file_download</span>
+      </div>
+
+    </div>
+
+      <!--<div class="tabla-datos">
+        <table multiTemplateDataRows #table responsiveTable mat-table [dataSource]="dataSource" matSort matSortActive="fecha" matSortDisableClear matSortDirection="desc" multiTemplateDataRows>
+
+          <div matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Fecha </th>
+            <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+          </div>
+
+          <div matColumnDef="referencia">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Referencia </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.referencia}} </td>
+          </div>
+
+          <div matColumnDef="descripcion">
+            <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+            <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+          </div>
+
+          <div matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Monto </th>
+            <td mat-cell *matCellDef="let row"> {{row.monto}} </td>
+          </div>
+
+          <div matColumnDef="moneda">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Moneda </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.moneda}} </td>
+          </div>
+
+          <div matColumnDef="balance">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Balance </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.balance}} </td>
+          </div>
+
+          <div matColumnDef="currency">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Moneda </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.currency}} </td>
+          </div>
+
+          <div matColumnDef="estatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+            <td mat-cell *matCellDef="let row">
+              <div class="status">
+                <div [ngClass]="row.estatus == 'Enviado' ? 'status-enviado' : row.estatus == 'Aplicado' ? 'status-aplicado' : row.estatus == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
+                  <span>{{row.estatus}}</span>
+                </div>
+              </div>
+            </td>
+          </div>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            matRipple></tr>
+        </table>
+
+
+      </div>-->
+
+
+      <div class="tabla-datos">
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows responsiveTable matSort matSortActive="fecha" matSortDisableClear matSortDirection="desc">
+
+
+
+          <div matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Fecha </th>
+            <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+          </div>
+
+          <div matColumnDef="referencia">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Referencia </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.referencia}} </td>
+          </div>
+
+          <div matColumnDef="descripcion">
+            <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+            <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+          </div>
+
+          <div matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Monto </th>
+            <td mat-cell *matCellDef="let row"> {{row.monto}} </td>
+          </div>
+
+          <div matColumnDef="moneda">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Moneda </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.moneda}} </td>
+          </div>
+
+          <div matColumnDef="balance">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Balance </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.balance}} </td>
+          </div>
+
+          <div matColumnDef="currency">
+            <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Moneda </th>
+            <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.currency}} </td>
+          </div>
+
+          <div matColumnDef="estatus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+            <td mat-cell *matCellDef="let row">
+              <div class="status">
+                <div [ngClass]="row.estatus == 'Enviado' ? 'status-enviado' : row.estatus == 'Aplicado' ? 'status-aplicado' : row.estatus == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
+                  <span>{{row.estatus}}</span>
+                </div>
+              </div>
+            </td>
+          </div>
+
+          <!--<ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+            <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+          </ng-container>-->
+
+
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+              <div class="example-element-detail"
+                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <div class="example-element-description">
+                  {{element.descripcion}}
+                  <span class="example-element-description-attribution"> </span>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+              [class.example-expanded-row]="expandedElement === element"
+              (click)="expandedElement = expandedElement === element ? null : element">
+          </tr>
+          <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+       </table>
+      </div>
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
+  </div>
+
+</div>
+

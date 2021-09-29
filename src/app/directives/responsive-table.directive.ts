@@ -56,19 +56,19 @@ export class ResponsiveTableDirective implements OnInit, AfterViewInit, OnDestro
       )
       .subscribe(({ columnNames, rows }) => {
 
-        this.columnsToShow = [ columnNames[0], columnNames[2], columnNames[3] ];
+        //this.columnsToShow = [ columnNames[0], columnNames[2], columnNames[3] ];
 
         rows.forEach(rowCells => {
 
           //this.cellsToShow = [ rowCells[0], rowCells[2], rowCells[3] ];
 
           rowCells.forEach((cell, index) => {
-            //console.log((cell as HTMLTableCellElement).cellIndex);
 
             this.renderer.setAttribute(
               cell,
               'data-column-name',
-              columnNames[(cell as HTMLTableCellElement).cellIndex]
+              ''
+              //columnNames[(cell as HTMLTableCellElement).cellIndex]
             );
           });
 

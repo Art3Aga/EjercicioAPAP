@@ -21,6 +21,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
+
+
 
 //Librarys
 import { ChartsModule } from 'ng2-charts';
@@ -29,6 +34,8 @@ import { TablasComponent } from './views/tablas/tablas.component';
 import { ResponsiveTableDirective } from './directives/responsive-table.directive';
 
 import { LayoutModule } from '@angular/cdk/layout';
+import { TablaExpansionResponsiveComponent } from './components/tabla-expansion-responsive/tabla-expansion-responsive.component';
+import { ExpansionTableDirective } from './directives/expansion-table.directive';
 
 
 
@@ -43,6 +50,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     TablaResponsiveComponent,
     TablasComponent,
     ResponsiveTableDirective,
+    TablaExpansionResponsiveComponent,
+    ExpansionTableDirective,
   ],
   imports: [
     BrowserModule,
@@ -54,10 +63,13 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatExpansionModule,
     MatSortModule,
     ChartsModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    MatListModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
