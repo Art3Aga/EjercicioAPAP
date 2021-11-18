@@ -24,6 +24,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -36,6 +40,10 @@ import { ResponsiveTableDirective } from './directives/responsive-table.directiv
 import { LayoutModule } from '@angular/cdk/layout';
 import { TablaExpansionResponsiveComponent } from './components/tabla-expansion-responsive/tabla-expansion-responsive.component';
 import { ExpansionTableDirective } from './directives/expansion-table.directive';
+
+
+//Http
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -69,7 +77,12 @@ import { ExpansionTableDirective } from './directives/expansion-table.directive'
     MatMenuModule,
     LayoutModule,
     MatListModule,
-    MatRippleModule
+    MatRippleModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

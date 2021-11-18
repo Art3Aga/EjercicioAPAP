@@ -30,12 +30,37 @@
 
 .contenedor {
 
-  width: 100%;
+  width: 1440px;
   margin-top: 20px;
+  overflow-x: hidden;
+  //padding: 0px 153px 0px 153px;
+  .row {
+    padding: 0px 153px 0px 153px;
+
+    .general-data {
+      background: linear-gradient(255.89deg, #F9F9F9 -44.72%, #FFFFFF 44.56%);
+      box-shadow: 2px 4px 11px 1px rgba(0, 0, 0, 0.14);
+      border-radius: 10px;
+      margin-bottom: 21px;
+      .row {
+        padding-left: 15px;
+      }
+    }
+
+    .col-12 {
+      padding: 0px !important;
+      //border: 1px solid gray;
+      //background-color: #C62828;
+      //margin: 0px 153px 0px 153px;
+    }
+    .col {
+      border: 1px solid gray;
+    }
+  }
 
   .tabla {
-    margin: 0 auto;
-    width: 90%;
+    //margin: 0 auto;
+    width: 100%;
     border-radius: 10px;
     background: linear-gradient(255.89deg, #F9F9F9 -44.72%, #FFFFFF 44.56%);
     box-shadow: 2px 4px 11px 1px rgba(0, 0, 0, 0.14);
@@ -106,14 +131,12 @@
     }
 
     .tabla-datos {
-      padding-top: 3px;
-      padding-left: 15px;
+      //padding-top: 3px;
+      //padding-left: 15px;
       //height: 300px;
-      overflow-y: auto;
+      //overflow-y: auto;
 
-      #status {
-        background-color: #008035;
-      }
+
 
       .status-enviado {
         background: #E3F2FD;
@@ -231,12 +254,6 @@
       grid-row: 2 / 3;
     }
 
-  }
-
-  .status {
-    display: flex;
-    justify-content: right;
-    align-items: center;
   }
 
 

@@ -21,10 +21,11 @@ export class TablaExpansionResponsiveComponent implements OnInit, AfterViewInit 
 
   users: CustomData[] = [];
   hide: boolean = false;
+  usolocal: boolean = false;
 
   expandedElement!: CustomData | null;
 
-  displayedColumns: string[] = ['fecha', 'referencia', 'descripcion', 'monto', 'moneda', 'balance', 'currency', 'estatus'];
+  displayedColumns: string[] = ['n_tarjeta', 'usuario', 'tipo_tarjeta', 'limite_compras', 'limite_avance', 'status_tarjeta'];
   dataSource: MatTableDataSource<CustomData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -32,12 +33,9 @@ export class TablaExpansionResponsiveComponent implements OnInit, AfterViewInit 
 
   constructor(public breakpointObserver: BreakpointObserver) {
     this.users = [
-      { fecha: '1/11/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Enviado' },
-      { fecha: '2/21/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Enviado' },
-      { fecha: '3/11/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Enviado' },
-      { fecha: '4/11/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Aplicado' },
-      { fecha: '5/11/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Aplicado' },
-      { fecha: '6/11/19', referencia: 'FT2025584580', descripcion: 'Dr impuesto DGII 0.0015', monto: '-$23,999.99', moneda: 'DOP', balance: '$999,999,999.99', currency: 'DOP', estatus: 'Enviado' },
+      { n_tarjeta: 123456789, usuario: 'Alicia Diaz Contreras', tipo_tarjeta: 'Principal', limite_compras: '$999,999.99', limite_avance: '$999,999.99', status_tarjeta: 'Pendiente' },
+      { n_tarjeta: 123456789, usuario: 'Alicia Diaz Contreras', tipo_tarjeta: 'Principal', limite_compras: '$999,999.99', limite_avance: '$999,999.99', status_tarjeta: 'Bloqueada' },
+      { n_tarjeta: 123456789, usuario: 'Alicia Diaz Contreras', tipo_tarjeta: 'Principal', limite_compras: '$999,999.99', limite_avance: '$999,999.99', status_tarjeta: 'Pendiente' },
     ];
     this.dataSource = new MatTableDataSource(this.users);
   }
@@ -76,12 +74,10 @@ export class TablaExpansionResponsiveComponent implements OnInit, AfterViewInit 
 }
 
 export interface CustomData {
-  fecha: string;
-  referencia: string;
-  descripcion: string;
-  monto: string;
-  moneda: string;
-  balance: string;
-  currency: string;
-  estatus: string;
+  n_tarjeta: number;
+  usuario: string;
+  tipo_tarjeta: string;
+  limite_compras: string;
+  limite_avance: string;
+  status_tarjeta: string;
 }

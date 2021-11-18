@@ -12,8 +12,8 @@ export class ResponsiveTableDirective implements OnInit, AfterViewInit, OnDestro
 
   private onDestroy$ = new Subject<boolean>();
 
-  private thead!: HTMLTableSectionElement;
-  private tbody!: HTMLTableSectionElement;
+  public thead!: HTMLTableSectionElement;
+  public tbody!: HTMLTableSectionElement;
 
   private theadChanged$ = new BehaviorSubject(true);
   private tbodyChanged$ = new Subject<boolean>();
@@ -38,32 +38,33 @@ export class ResponsiveTableDirective implements OnInit, AfterViewInit, OnDestro
     this.tbodyObserver.observe(this.tbody, { childList: true });
   }
 
+  data() {
+    return 1 + 2;
+  }
+
+  getColumnAndRowNames() {
+    return map(({ headRow, bodyRows }) => ({
+      columnNames: [...headRow.children].map(
+        headerCell => headerCell.textContent!
+      ),
+      rows: [...bodyRows].map(row => [...row.children])
+    }));
+  }
+
+
+  getDataColumnAndBody() {
+    return combineLatest([this.theadChanged$, this.tbodyChanged$]).pipe(
+      mapTo({ headRow: this.thead.rows.item(0)!, bodyRows: this.tbody.rows }),
+      this.getColumnAndRowNames(),
+      takeUntil(this.onDestroy$)
+    );
+  }
+
   ngAfterViewInit() {
-    /**
-     * Set the "data-column-name" attribute for every body row cell, either on
-     * thead row changes (e.g. language changes) or tbody rows changes (add, delete).
-     */
-    combineLatest([this.theadChanged$, this.tbodyChanged$])
-      .pipe(
-        mapTo({ headRow: this.thead.rows.item(0)!, bodyRows: this.tbody.rows }),
-        map(({ headRow, bodyRows }) => ({
-          columnNames: [...headRow.children].map(
-            headerCell => headerCell.textContent!
-          ),
-          rows: [...bodyRows].map(row => [...row.children])
-        })),
-        takeUntil(this.onDestroy$)
-      )
-      .subscribe(({ columnNames, rows }) => {
-
-        //this.columnsToShow = [ columnNames[0], columnNames[2], columnNames[3] ];
-
+    this.getDataColumnAndBody().subscribe(({ columnNames, rows }) => {
+        console.log(columnNames);
         rows.forEach(rowCells => {
-
-          //this.cellsToShow = [ rowCells[0], rowCells[2], rowCells[3] ];
-
           rowCells.forEach((cell, index) => {
-
             this.renderer.setAttribute(
               cell,
               'data-column-name',
