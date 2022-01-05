@@ -1,0 +1,101 @@
+<mat-drawer-container class="drawer-container">
+    <mat-drawer #drawer class="example-sidenav" mode="side" [position]="'end'">
+        <div class="revealed-container" id="revealed-container">
+            <div class="icon"></div>
+            <div class="title-quick-access align-left title-section">
+                <div class="center">
+                    <span class="title">Acceso rápido</span>
+                    <span class="material-icons icon-edit">edit</span>
+                </div>
+            </div>
+            <div class="apps">
+                <div class="app" *ngFor="let app of apps; let i = index">
+                    <div class="icon center">
+                        <span [ngStyle]="{'transform': (i == 0) ? 'rotate(-90deg)' : 'rotate(0deg)' }" class="material-icons">{{app.icon}}</span>
+                    </div>
+                    <div class="text center">
+                        <span>{{app.text}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="add-apps">
+                <div class="add" *ngFor="let item of [1,1,1]">
+                    <div class="icon center">
+                        <span class="material-icons">add_circle</span>
+                    </div>
+                    <div class="text center">
+                        <span>Agregar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="title-assigned-officer align-left title-section">
+                <div class="center" (click)="toggleOfficialPanel = !toggleOfficialPanel">
+                    <span class="title">Oficial asignado</span>
+                    <span class="material-icons icon-edit">expand_more</span>
+                </div>
+            </div>
+            <div class="official-name" [hidden]="toggleOfficialPanel" *ngIf="official">
+                <span class="first-span">Nombre: </span>
+                <span class="second-span">{{official?.officialName}}</span>
+            </div>
+            <div class="official-phone center-vertical" [hidden]="toggleOfficialPanel" *ngIf="official">
+                <span class="material-icons sub-first-span">call</span>
+                <a href="" class="sub-second-span">{{official?.officialPhone}}</a>
+            </div>
+            <div class="official-email center-vertical" [hidden]="toggleOfficialPanel" *ngIf="official">
+                <span class="material-icons-outlined sub-first-span">mail</span>
+                <a href="" class="sub-second-span">{{official?.officialEmail}}</a>
+            </div>
+            <div class="official-office" [hidden]="toggleOfficialPanel" *ngIf="official?.office">
+                <span class="first-span">Oficina: </span>
+                <span class="second-span">SUC Sambil</span>
+            </div>
+            <div class="office-phone center-vertical" [hidden]="toggleOfficialPanel" *ngIf="official?.office">
+                <span class="material-icons sub-first-span">call</span>
+                <a href="" class="sub-second-span">{{official?.office?.officePhone}}</a>
+            </div>
+            <div class="office-address center-vertical" [hidden]="toggleOfficialPanel" *ngIf="official?.office">
+                <span class="material-icons sub-first-span">domain</span>
+                <span class="second-span">{{official?.office?.officeAddress}}</span>
+            </div>
+            <div class="office-schedule center-vertical" [hidden]="toggleOfficialPanel" *ngIf="official?.office">
+                <span class="material-icons sub-first-span">schedule</span>
+                <span class="second-span">{{official?.office?.officeSchedule}}</span>
+            </div>
+            <div class="title-divisas align-left title-section">
+                <div class="center">
+                    <span class="title">Divisas</span>
+                </div>
+            </div>
+            <div class="divisas-usd center-vertical">
+                <span class="first-span">USD </span>
+                <span class="second-span">Venta $56.00</span>
+                <span class="material-icons icon-arrow">east</span>
+                <span class="second-span">Compra $56.00</span>
+            </div>
+            <div class="divisas-eur center-vertical">
+                <span class="first-span">EUR </span>
+                <span class="second-span">Venta $56.00</span>
+                <span class="material-icons icon-arrow">east</span>
+                <span class="second-span">Compra $56.00</span>
+            </div>
+            <div class="carousel-container" *ngIf="advertisements.length > 0">
+                <div class="carousel">
+                    <app-carousel [advertisements]="advertisements"></app-carousel>
+                </div>
+            </div>
+        </div>    
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="reveal-button" [ngStyle]="{'box-shadow': togglePanelRight ? 'none' : '1px 2px 11px rgba(0, 0, 0, 0.09)'}" (click)="togglePanel(drawer)">
+    <div class="icon" *ngIf="!togglePanelRight">
+        <span class="material-icons-outlined">
+            keyboard_double_arrow_left
+        </span>
+    </div>
+    <div class="icon center" *ngIf="togglePanelRight">
+        <span class="material-icons-outlined">
+            keyboard_double_arrow_right
+        </span>
+    </div>
+  </div>

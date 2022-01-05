@@ -2,112 +2,93 @@
 
 <div class="contenedor">
 
-  <div class="row">
+  
+  <div class="tabla m-auto">
 
-    <div class="col-12 general-data">
+    <div class="tabla-header">
 
-      <div class="row">
-        <div class="col-1" style="text-align: center;">
-          <span class="material-icons-outlined">
-            savings
-            </span>
-        </div>
-        <div class="col-1">1005187590</div>
+      <div class="input-search">
+        <mat-form-field appearance="outline">
+          <mat-label>Buscar por referencia, descripción, monto...</mat-label>
+          <span matPrefix class="material-icons-outlined">search</span>
+          <input (keyup)="applyFilter($event)" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="div-filtrar">
+        <span>Filtrar</span>
+      </div>
+      <div class="icon-filtro">
+        <span class="material-icons-outlined">filter_list</span>
+      </div>
+      <div class="icon-download">
+        <span class="material-icons">file_download</span>
       </div>
 
     </div>
 
-    <div class="col-12">
+      <div class="tabla-datos ps-3">
+        <table responsiveTable mat-table [dataSource]="dataSource" matSort matSortActive="fecha" matSortDisableClear matSortDirection="desc">
 
-      <div class="tabla m-auto">
+          <tbody>
 
-        <div class="tabla-header">
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> ID </th>
+              <td mat-cell *matCellDef="let row"> <div class="fecha">{{row.id}}</div> </td>
+            </ng-container>
 
-          <div class="input-search">
-            <mat-form-field appearance="outline">
-              <mat-label>Buscar por referencia, descripción, monto...</mat-label>
-              <span matPrefix class="material-icons-outlined">search</span>
-              <input (keyup)="applyFilter($event)" matInput>
-            </mat-form-field>
-          </div>
+            <div matColumnDef="referencia">
+              <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Username </th>
+              <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> <div class="referencia">{{row.username}}</div> </td>
+            </div>
 
-          <div class="div-filtrar">
-            <span>Filtrar</span>
-          </div>
-          <div class="icon-filtro">
-            <span class="material-icons-outlined">filter_list</span>
-          </div>
-          <div class="icon-download">
-            <span class="material-icons">file_download</span>
-          </div>
+            <div matColumnDef="descripcion">
+              <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let row"> <div class="descripcion">{{row.name}}</div> </td>
+            </div>
 
-        </div>
+            <div matColumnDef="monto">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+              <td mat-cell *matCellDef="let row"> <div class="monto">{{row.email}}</div> </td>
+            </div>
 
-          <div class="tabla-datos ps-3">
-            <table responsiveTable mat-table [dataSource]="dataSource" matSort matSortActive="fecha" matSortDisableClear matSortDirection="desc">
+            <div matColumnDef="moneda">
+              <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+              <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
+            </div>
 
-              <tbody>
+            <div matColumnDef="balance">
+              <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+              <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.phone}} </td>
+            </div>
 
-                <ng-container matColumnDef="fecha">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear> ID </th>
-                  <td mat-cell *matCellDef="let row"> <div class="fecha">{{row.id}}</div> </td>
-                </ng-container>
+            <div matColumnDef="currency">
+              <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
+              <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.website}} </td>
+            </div>
 
-                <div matColumnDef="referencia">
-                  <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header disableClear> Username </th>
-                  <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> <div class="referencia">{{row.username}}</div> </td>
+            <div matColumnDef="estatus">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
+              <td mat-cell *matCellDef="let row">
+                <div class="status">
+                  <div [ngClass]="row.username == 'Enviado' ? 'status-enviado' : row.username == 'Aplicado' ? 'status-aplicado' : row.username == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
+                    <span>{{row.username}}</span>
+                  </div>
                 </div>
+              </td>
+            </div>
 
-                <div matColumnDef="descripcion">
-                  <th id="descripcion-th" mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                  <td mat-cell *matCellDef="let row"> <div class="descripcion">{{row.name}}</div> </td>
-                </div>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+            <tr class="data-rows" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-                <div matColumnDef="monto">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-                  <td mat-cell *matCellDef="let row"> <div class="monto">{{row.email}}</div> </td>
-                </div>
+          </tbody>
 
-                <div matColumnDef="moneda">
-                  <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-                  <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.address.city}} </td>
-                </div>
-
-                <div matColumnDef="balance">
-                  <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
-                  <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.phone}} </td>
-                </div>
-
-                <div matColumnDef="currency">
-                  <th [ngClass]="{'hide': hide }" mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
-                  <td [ngClass]="{'hide': hide }" mat-cell *matCellDef="let row"> {{row.website}} </td>
-                </div>
-
-                <div matColumnDef="estatus">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
-                  <td mat-cell *matCellDef="let row">
-                    <div class="status">
-                      <div [ngClass]="row.username == 'Enviado' ? 'status-enviado' : row.username == 'Aplicado' ? 'status-aplicado' : row.username == 'Rechazado' ? 'status-rechazado' : 'status-enviado'">
-                        <span>{{row.username}}</span>
-                      </div>
-                    </div>
-                  </td>
-                </div>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
-                <tr class="data-rows" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-              </tbody>
-
-            </table>
+        </table>
 
 
-          </div>
-          <mat-paginator *ngIf="dataSource" [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
       </div>
-
-    </div>
-
+      <mat-paginator *ngIf="dataSource" [pageSize]="10" [pageSizeOptions]="[5, 10, 20, 100]"></mat-paginator>
+  </div>
 
     <!--<div class="col">1</div>
     <div class="col">2</div>
@@ -122,7 +103,7 @@
     <div class="col">11</div>
     <div class="col">12</div>-->
 
-  </div>
+  
 
 
 

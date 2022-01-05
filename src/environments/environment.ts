@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url_api: 'https://jsonplaceholder.typicode.com/users'
+  url_api: 'https://jsonplaceholder.typicode.com/users',
+  base_url: 'http://mock-ib-services-apap-online-dev.apps.x966bdcl.eastus2.aroapp.io'
 };
 
 /*

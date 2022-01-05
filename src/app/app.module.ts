@@ -28,11 +28,19 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MatSidenavModule } from '@angular/material/sidenav'; 
 
 
 
 //Librarys
 import { ChartsModule } from 'ng2-charts';
+import { SwiperModule } from 'swiper/angular';
+import { Angular2UsefulSwiperModule } from 'angular2-useful-swiper';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 import { TablaResponsiveComponent } from './components/tabla-responsive/tabla-responsive.component';
 import { TablasComponent } from './views/tablas/tablas.component';
 import { ResponsiveTableDirective } from './directives/responsive-table.directive';
@@ -44,6 +52,9 @@ import { ExpansionTableDirective } from './directives/expansion-table.directive'
 
 //Http
 import { HttpClientModule } from '@angular/common/http';
+import { TerminosCondicionesComponent } from './views/terminos-condiciones/terminos-condiciones.component';
+import { ProductsComponent } from './views/products/products.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 
@@ -60,12 +71,16 @@ import { HttpClientModule } from '@angular/common/http';
     ResponsiveTableDirective,
     TablaExpansionResponsiveComponent,
     ExpansionTableDirective,
+    TerminosCondicionesComponent,
+    ProductsComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatCarouselModule,
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -82,7 +97,13 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatSlideToggleModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatStepperModule,
+    SwiperModule,
+    IvyCarouselModule,
+    MatSidenavModule,
+    CarouselModule
+    //Angular2UsefulSwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

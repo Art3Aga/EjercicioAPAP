@@ -1,0 +1,35 @@
+.container-fluid {}
+
+.container-fluid {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: auto;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+
+    .stepper-container {
+        grid-column: 1;
+        grid-row: 1;
+        
+        mat-stepper {
+            background-color: #F6F8FA !important;
+            ::ng-deep .mat-step-header .mat-step-label .mat-step-text-label {
+                font-family: Ubuntu;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 21px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.1px;
+                color: rgba(0, 0, 0, 0.87);
+            }
+
+            ::ng-deep .mat-stepper-vertical-line::before {
+                border-left-width: 0px !important;
+            }
+            
+        }
+    }
+}

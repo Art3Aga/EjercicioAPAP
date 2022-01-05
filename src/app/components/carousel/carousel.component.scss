@@ -1,0 +1,13 @@
+
+::ng-deep {
+    .owl-carousel .owl-item {
+        height: 254px !important;
+        img {
+            height: 100%;
+        }
+    }
+    //.owl-carousel .owl-stage-outer owl-stage 
+    .owl-carousel .owl-stage .owl-item {
+        //width: 286px;
+    }
+}
